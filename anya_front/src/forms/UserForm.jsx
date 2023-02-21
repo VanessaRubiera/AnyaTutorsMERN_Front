@@ -3,7 +3,7 @@ import * as yup from 'yup'
 import { useForm, Controller } from 'react-hook-form'
 import { Box, Grid, TextField } from '@mui/material'
 
-const UserForm = () => {
+const UserForm = ({ email, setEmail, password, setPassword }) => {
 
     const defaultValues = {
         email: '',
@@ -25,17 +25,51 @@ const UserForm = () => {
         <Box
             id='user-form'
             component='form'
-            onReset={() => reset(defaultValues)}
             onSubmit={handleSubmit()}
-
+            sx={{ padding: '24px' }}
         >
             <Grid container spacing={4}>
                 <Grid item xs={8}>
                     <Controller
                         control={control}
-                    >
-
-                    </Controller>
+                        name='email'
+                        render={({ field, fieldState }) => (
+                            <TextField
+                                {...field}
+                                label='Email'
+                                variant='outlined'
+                                fullWidth
+                                value={email}
+                                onChange={(e) => {
+                                    setEmail(e.target.value)
+                                }}
+                            // error={!!fieldState.error}
+                            // helperText={fieldState.error?.message}
+                            />
+                        )}
+                    />
+                </Grid>
+                <Grid item xs={8}>
+                    <Controller
+                        control={control}
+                        name='password'
+                        render={({ field, fieldState }) => (
+                            <TextField
+                                {...field}
+                                label='Password'
+                                variant='outlined'
+                                fullWidth
+                                type={'password'}
+                                value={password}
+                                onChange={(e) => {
+                                    setPassword(e.target.value)
+                                }
+                                }
+                            // error={!!fieldState.error}
+                            // helperText={fieldState.error?.message}
+                            />
+                        )}
+                    />
                 </Grid>
             </Grid>
         </Box>
