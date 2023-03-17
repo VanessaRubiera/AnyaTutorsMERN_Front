@@ -1,6 +1,5 @@
 body {
   background-image: url('/public/background.jpg');
-  background-color: hotpink;
   background-size: cover;
   background-position: center;
   margin: 0;
@@ -9,11 +8,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-reveal {
+  display: none;
 }
 
 html,

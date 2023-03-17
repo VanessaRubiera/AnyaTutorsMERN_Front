@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+.env
+
+#credentials
+anyatutors_credentials.json
 
 # testing
 /coverage

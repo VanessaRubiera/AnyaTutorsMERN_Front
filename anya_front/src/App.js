@@ -1,10 +1,13 @@
 import './App.css';
-import NavBar from './components/NavBar';
 import RolePage from './pages/RolePage';
 import { Route, Routes } from "react-router-dom";
 import StudentPage from './pages/StudentPage';
 import TeacherPage from './pages/TeacherPage';
-import LoginPage from './pages/LoginPage';
+import UserLogPage from './pages/UserLogPage';
+import UserRegisterPage from './pages/UserRegisterPage';
+import Index from './pages/index/index';
+
+
 
 /**
  * Este es el componente principal de la aplicación.
@@ -18,26 +21,36 @@ import LoginPage from './pages/LoginPage';
  * Este componente utiliza React Router para definir las rutas y mostrar las páginas.
  */
 
+
 function App() {
+
+
   return (
     <>
-      <NavBar />
       <div className="App" >
         <Routes>
           <Route
-            exact path='/'
-            element={<LoginPage />}
+            exact path='/AnyaTutorsMERN_Front'
+            element={<Index />}
           />
           <Route
-            exact path='/role'
+            exact path='AnyaTutorsMERN_Front/role'
             element={<RolePage />}
           />
           <Route
-            path='/student'
+            exact path='AnyaTutorsMERN_Front/userLogIn'
+            element={<UserLogPage />}
+          />
+          <Route
+            exact path='AnyaTutorsMERN_Front/userRegister'
+            element={<UserRegisterPage />}
+          />
+          <Route
+            path='AnyaTutorsMERN_Front/student'
             element={<StudentPage />}
           />
           <Route
-            path='/teacher'
+            path='AnyaTutorsMERN_Front/teacher'
             element={<TeacherPage />}
           />
         </Routes>
